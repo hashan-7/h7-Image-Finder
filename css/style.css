@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Define some basic variables (optional but good practice) */
+:root {
+    --primary-color: #0d6efd; /* Bootstrap Primary Blue */
+    --secondary-color: #6c757d; /* Bootstrap Secondary Gray */
+    --light-gray: #f8f9fa;
+    --dark-text: #212529;
+    --border-radius: 0.375rem; /* Bootstrap default */
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --modal-overlay-bg: rgba(0, 0, 0, 0.85); /* Modal background */
+    --modal-transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.container { max-width: 960px; }
+h1 { color: var(--primary-color); font-weight: 600; margin-bottom: 2rem !important; }
+
+/* Styling the Search Form */
+#search-form { background-color: #ffffff; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); margin-bottom: 3rem !important; }
+#search-input { border-radius: var(--border-radius); border: 1px solid #ced4da; padding: 0.75rem 1rem; transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
+#search-input:focus { border-color: #86b7fe; outline: 0; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+#search-form .btn-primary { padding: 0.75rem 1.5rem; font-weight: 500; transition: background-color .15s ease-in-out, border-color .15s ease-in-out; }
+
+
+/* Styling the Results Area */
+#results-container { min-height: 300px; padding-top: 1rem; }
+.card { border: none; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; overflow: hidden; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.175); }
+.card img { aspect-ratio: 4 / 3; object-fit: cover; cursor: pointer; /* Add cursor pointer to image */ }
+.card-body { padding: 0.75rem; }
+
+/* Loading Spinner and Error Message */
+.loading-spinner, .error-message { margin-top: 3rem; margin-bottom: 3rem; }
+
+/* Simple fade-in animation for results */
+.fade-in { animation: fadeInAnimation 0.5s ease-in-out forwards; opacity: 0; }
+@keyframes fadeInAnimation { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+#results-grid .col:nth-child(1) { animation-delay: 0.05s; } #results-grid .col:nth-child(2) { animation-delay: 0.1s; } #results-grid .col:nth-child(3) { animation-delay: 0.15s; } #results-grid .col:nth-child(4) { animation-delay: 0.2s; } #results-grid .col:nth-child(5) { animation-delay: 0.25s; } #results-grid .col:nth-child(6) { animation-delay: 0.3s; } #results-grid .col:nth-child(7) { animation-delay: 0.35s; } #results-grid .col:nth-child(8) { animation-delay: 0.4s; }
+
+/* Styles for download options */
+.size-options { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.size-options .btn { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
+
+
+.modal-overlay {
+    position: fixed;
+    inset: 0; /* Cover entire screen */
+    background-color: var(--modal-overlay-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1050; /* Ensure it's above other content */
+    padding: 1rem; /* Add padding for spacing */
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container for the image and caption inside the modal */
+.image-preview-content {
+    position: relative;
+    max-width: 85vw; /* Max width relative to viewport */
+    max-height: 85vh; /* Max height relative to viewport */
+    display: flex; /* Use flex to help center image if needed */
+    flex-direction: column; /* Stack image and caption */
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.9); /* Start slightly smaller */
+    opacity: 0;
+    transition: var(--modal-transition);
+}
+
+.modal-overlay.visible .image-preview-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+#preview-image {
+    display: block;
+    max-width: 100%; /* Fit within content area width */
+    max-height: calc(85vh - 60px); /* Fit within content area height, leaving space for caption/close btn */
+    object-fit: contain; /* Show full image without cropping */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.preview-caption {
+    color: #eee;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Close button specific to image preview */
+#image-preview-modal .modal-close-button {
+    position: absolute;
+    top: -10px; /* Position slightly outside */
+    right: -10px;
+    background-color: rgba(40, 40, 40, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1051; /* Above image */
+    transition: background-color 0.2s ease;
+}
+#image-preview-modal .modal-close-button:hover {
+     background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    body { padding-top: 1rem; padding-bottom: 1rem; }
+    #search-form { padding: 1rem; }
+    h1 { font-size: 1.75rem; margin-bottom: 1.5rem !important; }
+    #search-input, #search-form .btn-primary { font-size: 1rem; padding: 0.6rem 1rem; }
+    /* Make preview modal take more screen space on mobile */
+    .image-preview-content { max-width: 95vw; max-height: 80vh; }
+    #preview-image { max-height: calc(80vh - 50px); }
+    #image-preview-modal .modal-close-button { top: 5px; right: 5px; width: 30px; height: 30px; font-size: 1.2rem;}
+    .preview-caption { font-size: 0.8rem; margin-top: 0.5rem;}
+
+}
+/* Add this to the end of your existing style.css file */
+
+/* Enhanced Error Message Style */
+#error-message {
+    word-break: break-word; /* Prevent long errors overflowing */
+    font-weight: 500; /* Make text slightly bolder */
+}
+
+#error-message strong {
+    margin-right: 0.5em; /* Space after "Error:" */
+}
+
+
+
