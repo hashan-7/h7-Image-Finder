@@ -1,3 +1,4 @@
+// Wait for the HTML document to be fully loaded before running script
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed"); // DEBUG: Check if DOMContentLoaded fires
 
@@ -199,4 +200,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.modal-overlay').forEach(overlay => { overlay.addEventListener('click', (event) => { if (event.target === overlay) { closeModal(overlay); } }); });
 
 
-}); 
+}); // End of DOMContentLoaded

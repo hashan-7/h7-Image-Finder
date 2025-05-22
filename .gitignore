@@ -1,57 +1,61 @@
-# Environment files
-.env
-*.env
-.env.*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+    # Environment files
+    .env
+    *.env
+    .env.*
+    .env.local
+    .env.development.local
+    .env.test.local
+    .env.production.local
 
-# IDE / System files
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*.[Bb]ak
-*~
+    # IDE / System files
+    .idea/
+    .vscode/
+    *.suo
+    *.ntvs*
+    *.njsproj
+    *.sln
+    *.sw?
+    *.[Bb]ak
+    *~
 
-# Windows thumbnail cache files
-Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
+    # Windows thumbnail cache files
+    Thumbs.db
+    ehthumbs.db
+    ehthumbs_vista.db
 
-# macOS custom attributes
-.DS_Store
-.AppleDouble
-.LSOverride
+    # macOS custom attributes
+    .DS_Store
+    .AppleDouble
+    .LSOverride
 
-# Log files
-*.log
-logs/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+    # Log files
+    *.log
+    logs/
+    npm-debug.log*
+    yarn-debug.log*
+    yarn-error.log*
+    pnpm-debug.log*
+    lerna-debug.log*
 
-# Composer dependencies (if used later)
-/vendor/
+    # Composer dependencies (if used later)
+    /vendor/
 
-# Node dependencies (if used later)
-/node_modules/
-/.pnp/
-.pnp.js
-.pnp.cjs
+    # Node dependencies (if used later)
+    /node_modules/
+    /.pnp/
+    .pnp.js
+    .pnp.cjs
 
-# Build directories
-/build/
-/dist/
-/public/build/
+    # Build directories
+    /build/
+    /dist/
+    /public/build/
 
-# Temporary files
-*.tmp
-*.temp
+    # Temporary files
+    *.tmp
+    *.temp
 
+    # Configuration file with sensitive keys
+    config.php
+
+    
