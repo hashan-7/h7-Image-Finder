@@ -9,10 +9,15 @@
 ## 🚀 Core Features
 
 * **🌐 Multi-API Search:** Simultaneously search for images using both the **Google Custom Search API** and the **Pexels API** to get a wide variety of results.
+
 * **📥 Flexible Downloading:** Download images in their original, high-quality format with a single click.
+
 * **✂️ Dynamic Resizing:** Need a specific size? Resize images to a custom width before downloading, while automatically preserving the aspect ratio.
+
 * **📱 Fully Responsive Interface:** Built with Bootstrap 5, the user interface provides a seamless experience on desktops, tablets, and mobile devices.
+
 * **🛡️ Secure by Design:** Your sensitive API keys are kept safe and out of version control in a separate `config.php` file, which is ignored by Git.
+
 * **📄 Easy Pagination:** Effortlessly navigate through multiple pages of search results.
 
 ---
