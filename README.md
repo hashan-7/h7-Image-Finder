@@ -48,10 +48,10 @@ To get a local copy up and running, please follow these steps carefully.
 
 1.  **Clone the Repository** into your web server's root directory (e.g., `htdocs` for XAMPP, `www` for WAMP):
     ```sh
-    git clone [https://github.com/YOUR_USERNAME/h7-image-finder.git](https://github.com/YOUR_USERNAME/h7-image-finder.git)
+    git clone [https://github.com/hashan-7/h7-image-finder.git](https://github.com/hashan-7/h7-image-finder.git)
     cd h7-image-finder
     ```
-    *(Remember to replace `YOUR_USERNAME` with your actual GitHub username)*
+
 
 2.  **(Optional) Install PHP Dependencies:**
     If the project uses libraries like `phpdotenv`, run Composer to install them.
